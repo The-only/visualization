@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/home/css/index.less" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="header-nav">header</div>
+
+    <div class="mian">
+        <div class="container">
+            main
+        </div>
+    </div>
+
+    <div id="footer-nav">footer</div>
+
+
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+    <script>
+
+        require.config({
+            "baseUrl": "src",
+            "paths": {},
+            "packages": [
+                {
+                    "name": "etpl",
+                    "location": "../dep/etpl/3.0.1/src",
+                    "main": "main"
+                }
+            ]
+        });
+        define('jquery', function (require) {
+            return $;
+        });
+        define('d3', function (require) {
+            return d3;
+        });
+    </script>
+
+    <script>
+        require(['home/index'], function(page) {
+            page.init();
+        });
+    </script>
+</body>
+</html>
