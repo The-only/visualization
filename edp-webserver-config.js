@@ -1,58 +1,56 @@
-/**
- * @file config edp-webserver
- * @author EFE
- */
-
-/* globals home, redirect, content, empty, autocss, file, less, stylus, proxyNoneExists */
-
-
 exports.port = 8848;
 exports.directoryIndexes = true;
 exports.documentRoot = __dirname;
 exports.getLocations = function () {
     return [
-        {
-            location: /\/$/,
-            handler: home('index.html')
+        { 
+            location: /\/$/, 
+            handler: home( 'index.html' )
         },
-        {
-            location: /^\/redirect-local/,
-            handler: redirect('redirect-target', false)
+        { 
+            location: /^\/redirect-local/, 
+            handler: redirect('redirect-target', false) 
         },
-        {
-            location: /^\/redirect-remote/,
-            handler: redirect('http://www.baidu.com', false)
+        { 
+            location: /^\/redirect-remote/, 
+            handler: redirect('http://www.baidu.com', false) 
         },
-        {
-            location: /^\/redirect-target/,
-            handler: content('redirectd!')
+        { 
+            location: /^\/redirect-target/, 
+            handler: content('redirectd!') 
         },
-        {
-            location: '/empty',
-            handler: empty()
+        { 
+            location: '/empty', 
+            handler: empty() 
         },
-        {
-            location: /\.css($|\?)/,
+        { 
+            location: /\.css($|\?)/, 
             handler: [
                 autocss()
             ]
         },
-        {
-            location: /\.less($|\?)/,
+        { 
+            location: /\.less($|\?)/, 
             handler: [
                 file(),
                 less()
             ]
         },
         {
-            location: /\.styl($|\?)/,
+            location: /\.php($|\?)/,
+            handler: [
+                phpcgi()
+            ]
+        },
+        { 
+            location: /\.styl($|\?)/, 
             handler: [
                 file(),
                 stylus()
             ]
         },
-        {
-            location: /^.*$/,
+        { 
+            location: /^.*$/, 
             handler: [
                 file(),
                 proxyNoneExists()
@@ -61,9 +59,11 @@ exports.getLocations = function () {
     ];
 };
 
-/* eslint-disable guard-for-in */
-exports.injectResource = function (res) {
-    for (var key in res) {
-        global[key] = res[key];
+global.phpcgi = require('node-phpcgi/edp');
+
+exports.injectResource = function ( res ) {
+    for ( var key in res ) {
+        global[ key ] = res[ key ];
     }
 };
+

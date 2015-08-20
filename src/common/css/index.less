@@ -1,0 +1,60 @@
+@import "./base.less";
+
+@import "./common.less";
+
+@media (max-width: 1024px) {
+    .wrapper {
+        margin: 0 auto;
+        width: 964px;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .wrapper {
+        margin: 0 30px;
+        width: auto;
+    }
+}
+@media (min-width: 1281px) and (max-width: 1366px) {
+    .wrapper {
+        width: 1120px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 1367px) {
+    .wrapper {
+        width: 1220px;
+        margin: 0 auto;
+    }
+}
+
+.wrapper {
+    .header {
+        line-height: 40px;
+        background-color: #000;
+        color: #fff;
+    }
+    .container {
+        width: 100%;
+        background-color: #ccc;
+        .content {
+            &-top {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            &-bottom {
+
+            }
+            &-left,
+            &-right {
+                width: 48%;
+            }
+            &-right {
+                margin-left: 4%;
+            }
+        }
+    }
+    .footer {
+        color: #fff;
+        text-align: center;
+    }
+}

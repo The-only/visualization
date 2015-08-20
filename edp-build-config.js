@@ -1,14 +1,7 @@
-/**
- * @file config edp-build
- * @author EFE
- */
-
-/* globals LessCompiler, CssCompressor, JsCompressor, PathMapper, AddCopyright, ModuleCompiler, TplMerge */
-
 exports.input = __dirname;
 
-var path = require('path');
-exports.output = path.resolve(__dirname, 'output');
+var path = require( 'path' );
+exports.output = path.resolve( __dirname, 'output' );
 
 // var moduleEntries = 'html,htm,phtml,tpl,vm,js';
 // var pageEntries = 'html,htm,phtml,tpl,vm';
@@ -22,10 +15,7 @@ exports.getProcessors = function () {
     var addCopyright = new AddCopyright();
 
     return {
-        'default': [
-            lessProcessor, moduleProcessor, pathMapperProcessor
-        ],
-
+        'default': [ lessProcessor, moduleProcessor, pathMapperProcessor ],
         'release': [
             lessProcessor, cssProcessor, moduleProcessor,
             jsProcessor, pathMapperProcessor, addCopyright
@@ -60,9 +50,9 @@ exports.exclude = [
     '*.swp'
 ];
 
-/* eslint-disable guard-for-in */
-exports.injectProcessor = function (processors) {
-    for (var key in processors) {
-        global[key] = processors[key];
+exports.injectProcessor = function ( processors ) {
+    for ( var key in processors ) {
+        global[ key ] = processors[ key ];
     }
 };
+
