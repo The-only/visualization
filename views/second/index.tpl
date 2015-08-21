@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
 
     <title>D3可视化</title>
-    {include file="../common/conf.tpl" module="home"}
+    {include file="../common/conf.tpl" module="second"}
     <link href="{$module_host}/css/index.less" rel="stylesheet" />
     <link href="http://www.baidu.com/favicon.ico" rel="shortcut icon" />
 </head>

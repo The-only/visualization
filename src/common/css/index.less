@@ -28,33 +28,41 @@
 }
 
 .wrapper {
-    .header {
+    .header,
+    .footer {
         line-height: 40px;
         background-color: #000;
         color: #fff;
     }
     .container {
         width: 100%;
-        background-color: #ccc;
+        background-color: #fff;
         .content {
+            &-top,
+            &-bottom {
+                width: 100%;
+                height: 200px;
+            }
             &-top {
-                width: 80%;
                 margin-bottom: 10px;
+                background-color: #ccc;
             }
             &-bottom {
 
             }
             &-left,
             &-right {
-                width: 48%;
+                background-color: #ccc;
+                float: left;
+                height: 100%;
+                width: 49%;
             }
             &-right {
-                margin-left: 4%;
+                margin-left: 2%;
             }
         }
     }
     .footer {
-        color: #fff;
         text-align: center;
     }
 }
