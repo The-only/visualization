@@ -36,9 +36,11 @@
     </div>
 
     {include file="../common/script.tpl"}
-
+   <!--  <script>
+        define('global/chinamapdata', "{$tplData.chinamapdata}");
+    </script> -->
     <script>
-        require(['first/index'], function(page) {
+        require(['first/index'], function (page) {
             page.init();
         });
     </script>

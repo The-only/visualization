@@ -12,6 +12,6 @@ require_once('./top.php');
 require_once('./left.php');
 require_once('./right.php');
 
-$smarty -> assign( 'tplData', $tplData );
+$smarty -> assign('tplData', $tplData);
 $smarty -> display('first/index.tpl');
 
