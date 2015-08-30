@@ -28,27 +28,36 @@
 }
 
 .wrapper {
+    .font-yahei;
     .header,
     .footer {
         line-height: 40px;
         background-color: #000;
         color: #fff;
     }
+    .header {
+        h1 {
+            margin: 0;
+            padding-left: 10px;
+            line-height: 50px;
+        }
+    }
     .container {
         width: 100%;
         background-color: #fff;
+        .clearfix;
         .content {
             &-top,
             &-bottom {
                 width: 100%;
-                height: 600px;
             }
             &-top {
-                margin-bottom: 10px;
-                background-color: #ccc;
+                // height: 600px;
+                margin-bottom: 20px;
+                background-color: #fff;
             }
             &-bottom {
-
+                height: 300px;
             }
             &-left,
             &-right {

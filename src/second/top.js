@@ -11,7 +11,7 @@ define(
       //定义绘图区距包裹容器的边距
       var margin = {top: 20, right: 100, bottom: 20, left: 100},
           width = 1200 - margin.right,
-          height = 250 - margin.top - margin.bottom;
+          height = 450 - margin.top - margin.bottom;
 
       // 定义一些 值域缩放变化函数，使结点可以更好的展示在固定表栏中
       var xScale = d3.scale.linear().domain([1, 31]).range([0, width]),

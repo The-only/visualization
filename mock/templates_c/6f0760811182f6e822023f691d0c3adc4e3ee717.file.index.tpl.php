@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-08-21 08:50:04
+<?php /* Smarty version Smarty-3.1.19, created on 2015-08-30 15:19:16
          compiled from "../../views/second/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:56431102855d600536c7cc0-30087876%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6f0760811182f6e822023f691d0c3adc4e3ee717' => 
     array (
       0 => '../../views/second/index.tpl',
-      1 => 1440118170,
+      1 => 1440918545,
       2 => 'file',
     ),
   ),
@@ -31,5 +31,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div><!-- 饼图 --><div class="content-right"><?php echo $_smarty_tpl->getSubTemplate ("./right.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 </div></div></div><!-- footer --><?php echo $_smarty_tpl->getSubTemplate ("../common/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 </div><?php echo $_smarty_tpl->getSubTemplate ("../common/script.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
-<script>require(['second/index'], function(page) {page.init();});</script></body></html>
+<script type="text/javascript">var args = [];</script><script type="text/javascript" src="../../src/second/PieChart.js"></script><script>require(['second/index'], function(page) {page.init();});</script></body></html>
 <?php }} ?>

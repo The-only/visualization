@@ -62,7 +62,8 @@ define(
                     .on('click', function (d, i) {
                         d3.select(this)
                             .attr('fill', color(i));
-
+                        $('.calendar').html('');
+                        $('#city').html(d.properties.name);
                         renderCalendar(d.properties.name);
                         $('#follow-dialog').removeClass('hide');
                     });
@@ -84,7 +85,6 @@ define(
 
         // 读取文件并绘制日历图
         function renderCalendar(cityName) {
-            $('.calendar').html('');
             var city = {
                 '北京': 'Beijing',
                 '上海': 'Shanghai',
@@ -108,22 +108,22 @@ define(
                 }));*/
             function color(num) {
                 if (0 < num && num <= 50) {
-                    return 'q1-11';
+                    return 1;
                 }
                 if (51 < num && num <= 100) {
-                    return 'q2-11';
+                    return 2;
                 }
                 if (101 < num && num <= 150) {
-                    return 'q3-11';
+                    return 3;
                 }
                 if (151 < num && num <= 200) {
-                    return 'q4-11';
+                    return 4;
                 }
                 if (201 < num && num <= 300) {
-                    return 'q5-11';
+                    return 5;
                 }
                 if (num > 300) {
-                    return 'q6-11';
+                    return 6;
                 }
             }
 
@@ -212,7 +212,7 @@ define(
                     return d in data;
                 })
                 .attr('class', function (d) {
-                    return 'day ' + color(data[d]);
+                    return 'day qleve' + color(data[d]);
                 })
                 .select('title')
                 .text(function (d) {
