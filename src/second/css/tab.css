@@ -3,24 +3,27 @@
    * @author: zhangxuanjian(zhangxuanjian@baidu.com);
 */
 *{
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
 }
 .wrap{
-    width: 400px;
-    margin: 0 auto;
+    position: absolute;
+    height: 300px;
+    left: 50%;
+    top: 50%;
 }
-// .container .content-right{
-//     background: #fff !important;
-// }
-
+.pie-tabs{
+    position: relative;
+    left: -50%;
+    bottom : 50%;
+}
 .pie-tabs{
     width : 400px;
+    height : 300px;
     box-shadow : 2px 1px #dedede;
-    margin-top: 33px;
 }
 .pie-tabs ul{
-    height : 40px;
+    height : 16%;
     background : #fefefe;
     list-style : none;
     border-bottom: 1px solid #dedede;
@@ -30,22 +33,20 @@
 .pie-tabs li{
     float : left;
     padding : 0 20px;
-    height : 40px;
-    border-width: 2px 1px 0 1px;
-    border-style: solid;
-    border-color: transparent;
-    line-height: 40px;
-    width: auto;
-    margin-left: 0;
+    height : 100%;
+    border-width:2px 1px 0 1px;
+    border-style:solid;
+    border-color:transparent;
+
     font-size:0;/*目的是垂直居中文字，防止inline-block元素间间隙*/
 }
-// .pie-tabs li:before{/*设置参照物，给verticl-align提供参照物*/
-//     content: '';
-//     display: inline-block;
-//     vertical-align: middle;
-//     width: 0;/*防止参照物影响文字*/
-//     height: 100%;/*撑开布局*/
-// }
+.pie-tabs li:before{/*设置参照物，给verticl-align提供参照物*/
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;/*防止参照物影响文字*/
+    height: 100%;/*撑开布局*/
+}
 .pie-tabs li.active{
     color: #000;
     border-color:#dedede;
@@ -71,11 +72,14 @@
     box-sizing:border-box;
 }
 .pie-tabs canvas{
+     width:100%;
+     height:99%;
      background: #fff;
 }
 
  .legend{
-    border-top: 1px solid #dedede;
+    border: 1px solid #dedede;
+    border-bottom: none;
     background: transparent;
     box-shadow : 2px 1px #dedede;
     list-style: none;

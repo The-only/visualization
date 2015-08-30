@@ -19,15 +19,15 @@ define(
                 .attr('height', height)
                 .append('g')
                 .attr('transform', 'translate(0,0)');
-            // 投影
+
             var projection = d3.geo.mercator()
                                 .center([100, 38]) // 设定地图的中心位置，[107,31] 指的是经度和纬度
-                                .scale(750)  // 地图大小
-                                .translate([width / 2, height / 2]); // 地图宽度和高度
+                                .scale(750) // 设定放大的比例
+                                .translate([width / 2, height / 2]); // 设定平移
 
             // 将投影函数 projection ，作为参数，放入 path 中后，这个 path 函数就能对传入的数据进行投影变换
             var path = d3.geo.path()
-                    .projection(projection);
+                            .projection(projection);
 
 
             var color = d3.scale.category20();
@@ -39,7 +39,7 @@ define(
                     return;
                 }
                 // console.log(root.features);
-                // 绘制个省份的path路径
+
                 svg.selectAll('path')
                     .data(root.features)
                     .enter()
@@ -67,69 +67,27 @@ define(
                         $('#follow-dialog').removeClass('hide');
                     });
 
-                // 在地图上显示各个身份的名称
-               /* svg.selectAll('text')
-                    .data(root.features)
-                    .enter()
-                    .append('text')
-                    .attr('transform', function (d, i) {
-                        return 'translate(' + (path.centroid(d)[0] - 10) + ',' + path.centroid(d)[1] + ')';
-                    })
-                    .text(function (d, i) {
-                        return d.properties.name;
-                    })
-                    .attr('font-size', 12);*/
             });
         }
 
-        // 读取文件并绘制日历图
-        function renderCalendar(cityName) {
-            $('.calendar').html('');
-            var city = {
-                '北京': 'Beijing',
-                '上海': 'Shanghai',
-                '广东': 'Guangzhou'
-            };
+        function renderCalendar(data) {
             // ...
             var width = 960;
             var height = 136;
             var cellSize = 17; // cell size
 
-            // var percent = d3.format();
+            var percent = d3.format('.1%');
             var format = d3.time.format('%Y-%m-%d');
 
             // 将整数数值范围映射到颜色中
-            /*var color = d3.scale.quantize()
-                // 比例尺的定义域
-                .domain([1, 6])
-                // 比例尺的值域 range
-                .range(d3.range(6).map(function (d) {
+            var color = d3.scale.quantize()
+                .domain([-.05, .05])
+                .range(d3.range(11).map(function (d) {
                     return 'q' + d + '-11';
-                }));*/
-            function color(num) {
-                if (0 < num && num <= 50) {
-                    return 'q1-11';
-                }
-                if (51 < num && num <= 100) {
-                    return 'q2-11';
-                }
-                if (101 < num && num <= 150) {
-                    return 'q3-11';
-                }
-                if (151 < num && num <= 200) {
-                    return 'q4-11';
-                }
-                if (201 < num && num <= 300) {
-                    return 'q5-11';
-                }
-                if (num > 300) {
-                    return 'q6-11';
-                }
-            }
-
+                }));
             // 绘制日历格
             var svg = d3.select('.calendar').selectAll('svg')
-                .data(d3.range(2014, 2015))
+                .data(d3.range(2008, 2009))
                 .enter().append('svg')
                 .attr('width', width)
                 .attr('height', height)
@@ -192,7 +150,7 @@ define(
                     + 'H' + (w0 + 1) * cellSize + 'Z';
             }
 
-            d3.csv('data/calendar.csv', function (error, csv) {
+            d3.csv('data/dji.csv', function (error, csv) {
                 if (error) {
                     throw error;
                 }
@@ -202,10 +160,8 @@ define(
                     return d.Date;
                 })
                 .rollup(function (d) {
-                    var c = city[cityName];
-                    return +d[0][c];
+                    return (d[0].Close - d[0].Open) / d[0].Open;
                 })
-
                 .map(csv);
 
                 rect.filter(function (d) {
@@ -216,11 +172,11 @@ define(
                 })
                 .select('title')
                 .text(function (d) {
-                   return d + ': ' + data[d];
+                    return d + ': ' + percent(data[d]);
                 });
             });
 
-            // d3.select(self.frameElement).style('height', '2910px');
+            d3.select(self.frameElement).style('height', '2910px');
         }
 
         return {
@@ -238,3 +194,4 @@ define(
         };
     }
 );
+
