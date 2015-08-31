@@ -8,8 +8,6 @@ define(
         var d3 = require('d3');
         var $ = require('jquery');
         // var chinamapdata = require('global/chinamapdata');
-        var left = require('./left');
-        var right = require('./right');
 
         var city = {
             '北京': 'Beijing',
@@ -73,13 +71,13 @@ define(
                         $('.calendar').html('');
                         $('#city').html(d.properties.name);
                         renderCalendar(d.properties.name);
-                        left.init(city[d.properties.name].toLowerCase());
-                        right.init(city[d.properties.name].toLowerCase());
+                        require('./left').init(d.properties.name);
+                        require('./right').init(d.properties.name);
                         $('#follow-dialog').removeClass('hide');
                     });
 
                 // 在地图上显示各个身份的名称
-               /* svg.selectAll('text')
+                /*svg.selectAll('text')
                     .data(root.features)
                     .enter()
                     .append('text')
