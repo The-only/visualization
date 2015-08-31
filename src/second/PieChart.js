@@ -264,7 +264,7 @@ PieChart.prototype = {
                 this.drawTitle(this.title);
                 break;
         }
-        console.log("complete");
+        // console.log("complete");
     }
 
 };

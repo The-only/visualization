@@ -16,7 +16,7 @@ define(
       // 定义一些 值域缩放变化函数，使结点可以更好的展示在固定表栏中
       var xScale = d3.scale.linear().domain([1, 31]).range([0, width]),
           yScale = d3.scale.linear().domain([0, 200]).range([height, 0]),
-          radiusScale = d3.scale.sqrt().domain([0, 60]).range([0,height/15]);
+          radiusScale = d3.scale.sqrt().domain([0, 100]).range([0,height/15]);
 
       // 定义 x/y 坐标轴
       var xAxis = d3.svg.axis().orient("bottom").scale(xScale).orient('bottom').ticks(31),
@@ -59,7 +59,6 @@ define(
 
       // 加载 数据 ，并绘制 数据结点
       d3.json("data/BJdata.json", function(datas) {
-        // console.log(nations);
 
         // 添加 北京天气质量 节点数据
         var dot = svg.append("g")
@@ -90,7 +89,6 @@ define(
       });
 
     d3.json("data/SHdata.json", function(datas) {
-        // console.log(nations);
 
         // 添加 上海天气质量 节点数据
         var dot = svg.append("g")
@@ -121,7 +119,6 @@ define(
       });
 
     d3.json("data/GZdata.json", function(datas) {
-        console.log(datas);
 
         // 添加 广州天气质量 节点数据
         var dot = svg.append("g")

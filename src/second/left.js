@@ -102,7 +102,7 @@ define(
             .attr('x', -8)
             .attr('width', 16);
 
-            console.log(airs);
+            // console.log(airs);
         });
 
         // Returns the path for a given data point.
