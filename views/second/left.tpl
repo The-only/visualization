@@ -1,1 +1,2 @@
-平行坐标图
+<div class="parallel">
+</div>

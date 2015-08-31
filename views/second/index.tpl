@@ -36,9 +36,13 @@
     </div>
 
     {include file="../common/script.tpl"}
-
+    <script type="text/javascript">
+        var args = [];
+    </script>
+    <script type="text/javascript" src="../../src/second/PieChart.js"></script>
     <script>
         require(['second/index'], function(page) {
+
             page.init();
         });
     </script>

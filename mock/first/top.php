@@ -10,6 +10,3 @@ function readJson($module) {
     $p = json_decode($json, true);
     return $p;
 }
-
-
-
