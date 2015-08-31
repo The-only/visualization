@@ -55,13 +55,13 @@ define(
                                     '天气质量统计图',
                                     [
                                         {
-                                            id:"优",color:"#00934f",percent:piedata.bjcase.better
+                                            id:"优",color:"#0289C3",percent:piedata.bjcase.better
                                         },
                                         {
-                                            id:"良",color:"#fded54",percent:piedata.bjcase.good
+                                            id:"良",color:"#76C0EF",percent:piedata.bjcase.good
                                         },
                                         {
-                                            id:"污染天气",color:"#f4152c",percent:piedata.bjcase.worse
+                                            id:"污染天气",color:"#F09837",percent:piedata.bjcase.worse
                                         }
                                     ]);
             pie1.init();
@@ -71,13 +71,13 @@ define(
                                     '天气质量统计图',
                                     [
                                         {
-                                            id:"优",color:"#00934f",percent:piedata.shcase.better
+                                            id:"优",color:"#0289C3",percent:piedata.shcase.better
                                         },
                                         {
-                                            id:"良",color:"#fded54",percent:piedata.shcase.good
+                                            id:"良",color:"#76C0EF",percent:piedata.shcase.good
                                         },
                                         {
-                                            id:"污染天气",color:"#f4152c",percent:piedata.shcase.worse
+                                            id:"污染天气",color:"#F09837",percent:piedata.shcase.worse
                                         }
                                     ]);
             pie2.init();
@@ -87,13 +87,13 @@ define(
                                     '天气质量统计图',
                                     [
                                         {
-                                            id:"优",color:"#00934f",percent:piedata.gzcase.better
+                                            id:"优",color:"#0289C3",percent:piedata.gzcase.better
                                         },
                                         {
-                                            id:"良",color:"#fded54",percent:piedata.gzcase.good
+                                            id:"良",color:"#76C0EF",percent:piedata.gzcase.good
                                         },
                                         {
-                                            id:"污染天气",color:"#f4152c",percent:piedata.gzcase.worse
+                                            id:"污染天气",color:"#F09837",percent:piedata.gzcase.worse
                                         }
                                     ]);
             pie3.init();

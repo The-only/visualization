@@ -70,7 +70,7 @@ define(
               .append("circle")
               .attr("class", "dot")
               .style("fill", function(d) {
-                return 'hsla(120,100%,'+Math.min(d[3],100)+'%,.8)'; //PM2.5含量，绿色越深，质量越好
+                return '#fc8d59'; //PM2.5含量，绿色越深，质量越好
               })
               .attr("cx", function(d,i) {
                 return xScale(d[0]); //对应12月份的每一天
@@ -101,7 +101,7 @@ define(
               .append("circle")
               .attr("class", "dot")
               .style("fill", function(d) {
-                return 'hsla(0,100%,'+Math.min(d[3],100)+'%,.8)'; //PM2.5含量，绿色越深，质量越好
+                return '#99d594';
               })
               .attr("cx", function(d,i) {
                 return xScale(d[0]); //对应12月份的每一天
@@ -132,7 +132,7 @@ define(
               .append("circle")
               .attr("class", "dot")
               .style("fill", function(d) {
-                return 'hsla(240,100%,'+Math.min(d[3],100)+'%,.8)'; //PM2.5含量，绿色越深，质量越好
+                return '#3288bd';
               })
               .attr("cx", function(d,i) {
                 return xScale(d[0]); //对应12月份的每一天
