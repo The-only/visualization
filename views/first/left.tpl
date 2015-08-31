@@ -1,1 +1,2 @@
-南丁格尔图
+<div class="zhutu">
+</div>

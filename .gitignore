@@ -1,2 +1,2 @@
-templates_c
-node_modules
+./mock/templates_c
+./node_modules

@@ -1,58 +1,90 @@
-/**
- * @file 左边堆叠柱状图
- * @author sunwei11(sunwei11@baidu.com)
- */
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <style>
+        .axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
 
-define(
-    function (require) {
-        var d3 = require('common/d3/d3.min');
-        function zhutu(city) {
-        var w = 700;                        //width
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.dot {
+  stroke: #000;
+}
+
+
+.legend {
+                padding: 5px;
+                font: 10px sans-serif;
+                background: yellow;
+                box-shadow: 2px 2px 1px #888;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                         Messages per hour <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="m" value="2014-02-19" href="#">2014-02-19</a></li>
+                    <li><a class="m" value="2014-02-20" href="#">2014-02-20</a></li>
+                    <li><a class="m" value="2014-02-21" href="#">2014-02-21</a></li>
+                    <li><a class="m" value="2014-02-22" href="#">2014-02-22</a></li>
+                    <li><a class="m" value="2014-02-23" href="#">2014-02-23</a></li>
+                </ul>
+            </div>
+
+        <div id="mbars">
+        </div>
+        </div>
+        <script type="text/javascript">
+        var w = 600;                        //width
         var h = 500;                        //height
         var padding = {top: 40, right: 40, bottom: 40, left:40};
         var dataset;
         //Set up stack method
         var stack = d3.layout.stack();
 
-        if (city == "beijing"){
-              str = "data/beijing.json";
-            }else if (city == "shanghai"){
-              str = "data/shanghai.json";
-            }else {
-              str = "data/guangzhou.json";
-            }
-        d3.json(str,function(json){
-            dataset = json.map(function (table) {
-                return table.map(function (row) {
-                    row.time = +row.time;
-                    row.y = + row.y;
-                    return row;
-                });
-            });
+        d3.json("/mock/first/data/beijing.json",function(json){
+            dataset = json;
 
             //Data, stacked
             stack(dataset);
 
             var color_hash = {
-                    0 : ["PM2.5","#4dac26"],
-                    1 : ["PM10","#b8e186"],
-                    2 : ["co","#ffffbf"],
-                    3 : ["No2","#f1b6da"],
-                    4 : ["So2","#d01c8b"]
+                    0 : ["Invite","#1f77b4"],
+                    1 : ["Accept","#2ca02c"],
+                    2 : ["Decline","#ff7f0e"],
+                    3 : ["Decline","#ff7f0e"],
+                    4 : ["Decline","#ff7f0e"]
 
             };
 
 
             //Set up scales
-            var xScale = d3.scale.linear()
+            var xScale = d3.time.scale()
                 .domain([1,31])
-                .range([0, w-padding.left-padding.right]);
+                .rangeRound([0, w-padding.left-padding.right]);
 
             var yScale = d3.scale.linear()
                 .domain([0,
                     d3.max(dataset, function(d) {
                         return d3.max(d, function(d) {
-                            return (+d.y0) + (+d.y);
+                            return d.y0 + d.y;
                         });
                     })
                 ])
@@ -61,8 +93,7 @@ define(
             var xAxis = d3.svg.axis()
                            .scale(xScale)
                            .orient("bottom")
-                           .ticks(31);
-
+                           .ticks(d3.time.days,1);
 
             var yAxis = d3.svg.axis()
                            .scale(yScale)
@@ -75,7 +106,7 @@ define(
             var colors = d3.scale.category10();
 
             //Create SVG element
-            var svg = d3.select(".zhutu")
+            var svg = d3.select("#mbars")
                         .append("svg")
                         .attr("width", w)
                         .attr("height", h);
@@ -102,17 +133,17 @@ define(
 
             rects.transition()
                  .duration(function(d,i){
-                     return 50 * i;
+                     return 500 * i;
                  })
                  .ease("linear")
                 .attr("x", function(d) {
-                    return xScale(+d.time);
+                    return xScale(d.time);
                 })
                 .attr("y", function(d) {
-                    return -(- yScale(+d.y0) - yScale(+d.y) + (h - padding.top - padding.bottom)*2);
+                    return -(- yScale(d.y0) - yScale(d.y) + (h - padding.top - padding.bottom)*2);
                 })
                 .attr("height", function(d) {
-                    return -yScale(+d.y) + (h - padding.top - padding.bottom);
+                    return -yScale(d.y) + (h - padding.top - padding.bottom);
                 })
                 .attr("width", 15)
                 .style("fill-opacity",1);
@@ -128,12 +159,11 @@ define(
                     .attr("transform","translate(" + padding.left + "," + padding.top + ")")
                     .call(yAxis);
 
-
                 // adding legend
 
                 var legend = svg.append("g")
                                 .attr("class","legend")
-                                .attr("x", w/2 - padding.right +125)
+                                .attr("x", w - padding.right - 65)
                                 .attr("y", 25)
                                 .attr("height", 100)
                                 .attr("width",100);
@@ -144,14 +174,14 @@ define(
                       .each(function(d,i){
                         var g = d3.select(this);
                         g.append("rect")
-                            .attr("x", w/2 - padding.right +105)
+                            .attr("x", w - padding.right - 65)
                             .attr("y", i*25 + 10)
                             .attr("width", 10)
                             .attr("height",10)
                             .style("fill",color_hash[String(i)][1]);
 
                         g.append("text")
-                         .attr("x", w /2- padding.right +120)
+                         .attr("x", w - padding.right - 50)
                          .attr("y", i*25 + 20)
                          .attr("height",30)
                          .attr("width",100)
@@ -164,33 +194,27 @@ define(
                 .attr("y", 0 - 5)
                 .attr("x", 0-(h/2))
                 .attr("dy","1em")
-                .text("各成分含量");
+                .text("Number of Messages");
 
             svg.append("text")
                .attr("class","xtext")
                .attr("x",w/2 - padding.left)
                .attr("y",h - 5)
                .attr("text-anchor","middle")
-               .text("2014年12月");
+               .text("Days");
 
             svg.append("text")
             .attr("class","title")
-            .attr("x", (w / 4))
+            .attr("x", (w / 2))
             .attr("y", 20)
             .attr("text-anchor", "middle")
             .style("font-size", "16px")
             .style("text-decoration", "underline")
-            .text("广州、北京、上海空气质量成分分析");
-
+            .text("Number of messages per day.");
 
 
         });
 
-        }
-        return {
-            init: function () {
-                zhutu('shanghai');
-            }
-        };
-    }
-);
+        </script>
+    </body>
+</html>

@@ -11,6 +11,5 @@ function readJson($module) {
     return $p;
 }
 
-$tplData[ 'testjson' ] = readJson('./data/test');
-$tplData[ 'test' ] = 'test';
+
 

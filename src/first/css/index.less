@@ -5,3 +5,22 @@
 @import "./left.less";
 
 @import "./right.less";
+
+.wrapper {
+    .container {
+        .clearfix;
+        .content {
+            &-left,
+            &-right {
+                background-color: #fff;
+                float: left;
+                height: 500px;
+                width: 60%;
+            }
+            &-right {
+                padding-left: 47px;
+                width: 34%;
+            }
+        }
+    }
+}

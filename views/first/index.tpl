@@ -8,6 +8,9 @@
     {include file="../common/conf.tpl" module="first"}
     <link href="{$module_host}/css/index.less" rel="stylesheet" />
     <link href="http://www.baidu.com/favicon.ico" rel="shortcut icon" />
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+
+
 </head>
 
 <body>
@@ -21,11 +24,11 @@
                 {include file="./top.tpl"}
             </div>
             <div class="content-bottom">
-                <!-- 南丁格尔图 -->
+                <!-- 堆叠柱状图 -->
                 <div class="content-left">
                     {include file="./left.tpl"}
                 </div>
-                <!-- 堆叠柱状图 -->
+                <!-- 南丁格尔图 -->
                 <div class="content-right">
                     {include file="./right.tpl"}
                 </div>
@@ -41,6 +44,7 @@
         require(['first/index'], function(page) {
             page.init();
         });
+
     </script>
 </body>
 </html>
