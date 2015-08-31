@@ -114,8 +114,9 @@ define(
             .text("广州、北京、上海空气质量等级分析");
         }
         return {
-            init: function () {
-                meigui('beijing');
+            init: function (city) {
+              $('.meigui').html('');
+              meigui(city || 'beijing');
             }
         };
     }

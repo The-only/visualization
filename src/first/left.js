@@ -188,8 +188,9 @@ define(
 
         }
         return {
-            init: function () {
-                zhutu('shanghai');
+            init: function (city) {
+                $('.zhutu').html('');
+                zhutu(city || 'beijing');
             }
         };
     }

@@ -8,6 +8,14 @@ define(
         var d3 = require('d3');
         var $ = require('jquery');
         // var chinamapdata = require('global/chinamapdata');
+        var left = require('./left');
+        var right = require('./right');
+
+        var city = {
+            '北京': 'Beijing',
+            '上海': 'Shanghai',
+            '广东': 'Guangzhou'
+        };
 
         // 读取文件并绘制地图
         function renderChinaMap() {
@@ -65,6 +73,8 @@ define(
                         $('.calendar').html('');
                         $('#city').html(d.properties.name);
                         renderCalendar(d.properties.name);
+                        left.init(city[d.properties.name].toLowerCase());
+                        right.init(city[d.properties.name].toLowerCase());
                         $('#follow-dialog').removeClass('hide');
                     });
 
@@ -85,11 +95,6 @@ define(
 
         // 读取文件并绘制日历图
         function renderCalendar(cityName) {
-            var city = {
-                '北京': 'Beijing',
-                '上海': 'Shanghai',
-                '广东': 'Guangzhou'
-            };
             // ...
             var width = 960;
             var height = 136;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2015-08-24 17:13:42
+<?php /* Smarty version Smarty-3.1.19, created on 2015-08-31 14:19:16
          compiled from "/Users/sunwei11/baidu/visualization/views/common/script.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:160862916655d985575d6e61-71667205%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '31cb0aa154ce991ebac0a4c0c4c70f863b5eaf02' => 
     array (
       0 => '/Users/sunwei11/baidu/visualization/views/common/script.tpl',
-      1 => 1440407596,
+      1 => 1441001582,
       2 => 'file',
     ),
   ),
@@ -25,12 +25,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55d985575db9d3_26618555')) {function content_55d985575db9d3_26618555($_smarty_tpl) {?><script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
 <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js"></script>
+<script src="/src/common/d3/d3.min.js" charset="utf-8"></script>
 
-<!-- edp:
-{
-    "preserveBaseUrl": true
-}
--->
 <script>
     require.config({
         baseUrl: '<?php echo $_smarty_tpl->tpl_vars['base_url']->value;?>
