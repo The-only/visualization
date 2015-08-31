@@ -135,7 +135,7 @@ define(
                 var legend = svg.append('g')
                     .attr('class', 'legend')
                     .attr('x', w / 2 - padding.right + 125)
-                    .attr('y', 25)
+                    .attr('y', 20)
                     .attr('height', 100)
                     .attr('width', 100);
 
@@ -146,14 +146,14 @@ define(
                         var g = d3.select(this);
                         g.append('rect')
                             .attr('x', w / 2 - padding.right + 105)
-                            .attr('y', i * 25 + 10)
+                            .attr('y', i * 25 )
                             .attr('width', 10)
                             .attr('height', 10)
                             .style('fill', colorHash[String(i)][1]);
 
                         g.append('text')
                             .attr('x', w / 2 - padding.right + 120)
-                            .attr('y', i * 25 + 20)
+                            .attr('y', i * 25 + 10)
                             .attr('height', 30)
                             .attr('width', 100)
                             .style('fill', colorHash[String(i)][1])
