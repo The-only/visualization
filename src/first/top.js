@@ -99,33 +99,11 @@ define(
             var format = d3.time.format('%Y-%m-%d');
 
             // 将整数数值范围映射到颜色中
-            /*var color = d3.scale.quantize()
+            var color = d3.scale.threshold()
                 // 比例尺的定义域
-                .domain([1, 6])
+                .domain([51, 101, 151, 201, 301])
                 // 比例尺的值域 range
-                .range(d3.range(6).map(function (d) {
-                    return 'q' + d + '-11';
-                }));*/
-            function color(num) {
-                if (0 < num && num <= 50) {
-                    return 1;
-                }
-                if (51 < num && num <= 100) {
-                    return 2;
-                }
-                if (101 < num && num <= 150) {
-                    return 3;
-                }
-                if (151 < num && num <= 200) {
-                    return 4;
-                }
-                if (201 < num && num <= 300) {
-                    return 5;
-                }
-                if (num > 300) {
-                    return 6;
-                }
-            }
+                .range([1, 2, 3, 4, 5, 6]);
 
             // 绘制日历格
             var svg = d3.select('.calendar').selectAll('svg')
