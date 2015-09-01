@@ -1,2 +1,5 @@
-./mock/templates_c
-./node_modules
+templates_c
+node_modules
+Thumbs.db
+.DS_Store
+*.swp
