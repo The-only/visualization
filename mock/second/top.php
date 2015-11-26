@@ -1,7 +1,7 @@
 <?php
 /**
  * @file 上边气泡图
- * @author zhangxuanjian(zhangxuanjian@baidu.com)
+ * @author zhangxuanjian
  */
 
 function readJson($module) {

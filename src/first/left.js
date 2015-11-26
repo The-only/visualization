@@ -1,6 +1,6 @@
 /**
  * @file 左边堆叠柱状图
- * @author sunwei11(sunwei11@baidu.com)
+ * @author sunwei
  */
 
 define(

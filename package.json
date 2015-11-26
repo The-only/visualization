@@ -16,7 +16,7 @@
   "dependencies": {
     "node-phpcgi": "^0.2.6"
   },
-  "author": "dengxiaohong01@baidu.com",
+  "author": "dengxiaohong",
   "repository": "empty",
   "license": "BSD",
   "readme": "README"

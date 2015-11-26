@@ -1,6 +1,6 @@
 /**
  * @file 左边平行坐标图
- * @author lideqing(lideqing@baidu.com)
+ * @author lideqing
  */
 
 define(

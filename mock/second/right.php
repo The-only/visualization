@@ -1,7 +1,7 @@
 <?php
 /**
  * @file 右边饼图
- * @author zhangxuanjian(zhangxuanjian@baidu.com)
+ * @author zhangxuanjian
  */
 
 $tplData['test'] = 'xxxx';

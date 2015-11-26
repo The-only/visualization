@@ -1,6 +1,6 @@
 /**
  * @file 右边南丁格尔玫瑰图
- * @author sunwei11(sunwei11@baidu.com)
+ * @author sunwei
  */
 
 define(

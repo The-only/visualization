@@ -1,6 +1,6 @@
 /**
  * @file 地图、日历图
- * @author dengxiaohong01(dengxiaohong01@baidu.com)
+ * @author dengxiaohong
  */
 
 define(

@@ -1,6 +1,6 @@
 /**
  * @file 第一个页面
- * @author dengxiaohong01(dengxiaohong01@baidu.com)
+ * @author dengxiaohong
  */
 
 define(
